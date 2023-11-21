@@ -1,0 +1,71 @@
+// Import Helpers
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.portfolio-section {
+  min-height: 100vh;
+  padding: {
+    top: calc(60px + 2rem);
+    bottom: 2rem;
+  }
+}
+
+.container-c {
+  max-width: $container_xxl;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 3.8rem;
+  margin-bottom: 4rem;
+  span {
+    color: $brand_color;
+  }
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid $brand_color;
+  font-size: 1.7rem;
+  font-weight: 600;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  i {
+    position: relative;
+    top: 2px;
+    font-size: 23px;
+  }
+}
+
+.btn-brand {
+  @include btn-class($brand_color, $bg_color);
+}
+
+.btn-outline-brand {
+  @include btn-class($bg_color, $brand_color);
+}
