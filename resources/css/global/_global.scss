@@ -1,0 +1,10 @@
+// Import Helpers
+@use "../helpers/variables" as *;
+
+// Global css classes
+
+.container {
+	max-width: $container_xxl;
+	margin: 0 auto;
+	padding: 0 16px;
+}
