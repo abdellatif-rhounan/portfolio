@@ -1,0 +1,15 @@
+// Import Helpers
+@use "./variables" as *;
+
+@mixin btn-class($color1, $color2) {
+	background: $color1;
+	color: $color2;
+
+	&:hover {
+		color: $color1;
+	}
+
+	&::before {
+		background: $color2;
+	}
+}

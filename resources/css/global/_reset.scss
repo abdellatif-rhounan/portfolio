@@ -1,8 +1,11 @@
 // Import Helpers
 @use "../helpers/variables" as *;
 
-// Import Font 'Poppins'
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+// Import Font 'Poppins' & 'Kalam'
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap");
+
+// Import Box Icons
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
 
 // Reset Styling
 * {
@@ -37,4 +40,10 @@ button,
 input {
 	border: none;
 	outline: none;
+}
+
+// Text Selection Override
+::selection {
+	background: rgba($brand_color, 0.69);
+	color: #000;
 }
