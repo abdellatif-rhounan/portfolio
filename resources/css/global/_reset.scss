@@ -1,0 +1,40 @@
+// Import Helpers
+@use "../helpers/variables" as *;
+
+// Import Font 'Poppins'
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+// Reset Styling
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	font-family: $main_font, sans-serif;
+}
+
+html {
+	font-size: 62.5%;
+	overflow-x: hidden;
+}
+
+body {
+	min-height: 100vh;
+	background: $bg_color;
+	color: $text_color;
+}
+
+a {
+	text-decoration: none;
+	color: $text_color;
+}
+
+img {
+	width: 100%;
+}
+
+button,
+input {
+	border: none;
+	outline: none;
+}
