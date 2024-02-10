@@ -62,3 +62,12 @@
 .btn-outline-brand {
 	@include btn-class($bg_color, $brand_color);
 }
+
+.heading {
+	margin-bottom: 4rem;
+	text-align: center;
+	font-size: 3.8rem;
+	> span {
+		color: $brand_color;
+	}
+}

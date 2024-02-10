@@ -1,11 +1,13 @@
 <template>
 	<PageHeader />
 	<Home />
+	<About />
 </template>
 
 <script>
 import PageHeader from "@/Components/PageHeader.vue";
 import Home from "@/Views/Home.vue";
+import About from "@/Views/About.vue";
 
 export default {
 	name: "App",
@@ -13,6 +15,7 @@ export default {
 	components: {
 		PageHeader,
 		Home,
+		About,
 	},
 };
 </script>
