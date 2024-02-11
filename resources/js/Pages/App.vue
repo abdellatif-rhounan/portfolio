@@ -3,6 +3,7 @@
 	<Home />
 	<About />
 	<Works />
+	<Contact />
 	<PageFooter />
 </template>
 
@@ -11,6 +12,7 @@ import PageHeader from "@/Components/PageHeader.vue";
 import Home from "@/Views/Home.vue";
 import About from "@/Views/About.vue";
 import Works from "@/Views/Works.vue";
+import Contact from "@/Views/Contact.vue";
 import PageFooter from "@/Components/PageFooter.vue";
 
 export default {
@@ -21,6 +23,7 @@ export default {
 		Home,
 		About,
 		Works,
+		Contact,
 		PageFooter,
 	},
 };
