@@ -26,6 +26,10 @@ export default {
 		Contact,
 		PageFooter,
 	},
+
+	created() {
+		this.$store.dispatch("getInformations");
+	},
 };
 </script>
 

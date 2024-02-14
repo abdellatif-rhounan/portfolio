@@ -1,43 +1,15 @@
 <template>
 	<div class="filter-bar">
-		<div class="item">
-			<input type="radio" id="tous" v-model="technologie" value="tous" />
-			<label for="tous" class="label">tous</label>
-		</div>
+		<div v-for="filter in filters" class="item" :key="filter">
+			<input type="radio" :id="filter" v-model="technologie" :value="filter" />
 
-		<div class="item">
-			<input
-				type="radio"
-				id="html-css-js"
-				v-model="technologie"
-				value="html-css-js"
-			/>
-			<label for="html-css-js" class="label">html-css-js</label>
-		</div>
-
-		<div class="item">
-			<input type="radio" id="vue" v-model="technologie" value="vue" />
-			<label for="vue" class="label">vue</label>
-		</div>
-
-		<div class="item">
-			<input type="radio" id="php" v-model="technologie" value="php" />
-			<label for="php" class="label">php</label>
-		</div>
-
-		<div class="item">
-			<input type="radio" id="laravel" v-model="technologie" value="laravel" />
-			<label for="laravel" class="label">laravel</label>
-		</div>
-
-		<div class="item">
-			<input
-				type="radio"
-				id="wordpress"
-				v-model="technologie"
-				value="wordpress"
-			/>
-			<label for="wordpress" class="label">wordpress</label>
+			<label
+				:for="filter"
+				class="label"
+				:class="{ active: technologie === filter }"
+			>
+				{{ filter }}
+			</label>
 		</div>
 	</div>
 </template>
@@ -46,40 +18,31 @@
 export default {
 	name: "FilterBar",
 
-	props: {
-		defaultTechnologie: {
-			type: String,
-			required: true,
-		},
-	},
-
 	data() {
 		return {
 			technologie: "",
 		};
 	},
 
-	emits: ["technologieChanged"],
+	computed: {
+		filters() {
+			return this.$store.state.filters;
+		},
 
-	watch: {
-		technologie(newVal, oldVal) {
-			if (oldVal !== "") {
-				document
-					.querySelector(`.item > input[value=${oldVal}]`)
-					.nextElementSibling.classList.remove("active");
-			}
-			document
-				.querySelector(`.item > input[value=${newVal}]`)
-				.nextElementSibling.classList.add("active");
-			this.$emit("technologieChanged", newVal);
+		actualTechnologie() {
+			return this.$store.state.actualTechnologie;
 		},
 	},
 
-	mounted() {
-		this.technologie = this.defaultTechnologie;
-		document
-			.querySelector(`.item > input[value=${this.technologie}]`)
-			.nextElementSibling.classList.add("active");
+	watch: {
+		technologie(newVal) {
+			this.$store.commit("actualTechnologieMutate", newVal);
+		},
+	},
+
+	created() {
+		this.technologie = this.actualTechnologie;
+		this.$store.dispatch("getFilters");
 	},
 };
 </script>

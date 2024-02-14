@@ -8,32 +8,25 @@
 
 			<div class="content">
 				<div class="img-wrapper">
-					<img
-						src="storage/images/about-profile.png"
-						alt="Ma Photo de Profile"
-					/>
+					<img :src="informations['about_photo']" alt="Ma Photo de Profile" />
 				</div>
 
 				<div class="text">
-					<h3>Développeur Full Stack!</h3>
+					<h3>{{ informations["description"] }} !</h3>
 
 					<p>
-						Je suis un développeur Full Stack créatif, passionné par le
-						développement informatique et la création de solutions innovantes.
+						{{ informations["bio_1"] }}
 					</p>
 					<p>
-						J'excelle dans la création des applications dynamiques en gardant à
-						l'esprit une visualisation attrayante, des performances solides et
-						une bonne expérience utilisateur.
+						{{ informations["bio_2"] }}
 					</p>
 					<p>
-						Pendant mon temps libre, j'aime lire des livres et regarder les
-						matchs de mon équipe préférée.
+						{{ informations["bio_3"] }}
 					</p>
 
 					<AnchorComp
 						class="btn btn-brand"
-						href="https://drive.google.com/file/d/1QFiquw0YiB3MFyFa4Bk5_Gzzshwtazdo/view?usp=sharing"
+						:href="informations['resume']"
 						icon="bx bxs-download"
 						target="_blank"
 					>
@@ -53,6 +46,12 @@ export default {
 
 	components: {
 		AnchorComp,
+	},
+
+	computed: {
+		informations() {
+			return this.$store.state.informations;
+		},
 	},
 };
 </script>

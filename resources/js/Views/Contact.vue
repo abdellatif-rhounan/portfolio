@@ -99,7 +99,10 @@
 					<div class="info-content">
 						<div class="info-box">
 							<h4>Nom Complet :</h4>
-							<span>Abdellatif RHOUNAN</span>
+							<span
+								>{{ informations["firstname"] }}
+								{{ informations["lastname"] }}</span
+							>
 						</div>
 
 						<div class="info-box">
@@ -107,7 +110,7 @@
 								<i class="bx bxl-gmail"></i>
 								Email :
 							</h4>
-							<span>abdellatif.rhounan@gmail.com</span>
+							<span>{{ informations["mail"] }}</span>
 						</div>
 
 						<div class="info-box">
@@ -115,7 +118,7 @@
 								<i class="bx bx-phone"></i>
 								Télephone :
 							</h4>
-							<span>+212-614-17-19-11</span>
+							<span>{{ informations["phone"] }}</span>
 						</div>
 
 						<div class="info-box">
@@ -123,7 +126,7 @@
 								<i class="bx bxl-whatsapp"></i>
 								WhatsApp :
 							</h4>
-							<span>+212-614-17-19-11</span>
+							<span>{{ informations["whatsapp"] }}</span>
 						</div>
 
 						<div class="info-box">
@@ -131,7 +134,7 @@
 								<i class="bx bx-briefcase"></i>
 								Emploi :
 							</h4>
-							<span>Ouvert</span>
+							<span>{{ informations["job"] }}</span>
 						</div>
 					</div>
 				</div>
@@ -235,6 +238,12 @@ export default {
 						Swal.fire("Failed To Send The Message", "", "error");
 					}
 				);
+		},
+	},
+
+	computed: {
+		informations() {
+			return this.$store.state.informations;
 		},
 	},
 };

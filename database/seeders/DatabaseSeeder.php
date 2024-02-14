@@ -2,21 +2,33 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            FilterSeeder::class,
+            TechnologieSeeder::class,
+            ProjectSeeder::class,
+            InformationSeeder::class,
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $project_technologie = [
+            [1, 2],
+            [1, 4],
+            [2, 2],
+            [3, 4],
+            [4, 3],
+        ];
+
+        foreach ($project_technologie as $relation) {
+            DB::table('project_technologie')->insert([
+                'project_id' => $relation[0],
+                'technologie_id' => $relation[1],
+            ]);
+        }
     }
 }

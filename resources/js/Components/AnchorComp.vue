@@ -17,6 +17,9 @@ export default {
 		href: {
 			type: String,
 			required: true,
+			default() {
+				return "";
+			},
 		},
 		icon: {
 			type: String,

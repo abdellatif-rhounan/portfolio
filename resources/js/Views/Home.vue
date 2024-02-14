@@ -2,18 +2,21 @@
 	<section class="portfolio-section" id="home">
 		<div class="container">
 			<div class="content">
-				<span class="greeting">Bonjour, Je suis</span>
+				<span class="greeting">{{ informations["greeting"] }}</span>
 
-				<div class="myname"><span>Abdellatif</span> Rhounan</div>
+				<div class="myname">
+					<span>{{ informations["firstname"] }}</span>
+					{{ informations["lastname"] }}
+				</div>
 
-				<div class="description">Développeur Full Stack</div>
+				<div class="description">{{ informations["description"] }}</div>
 
 				<div class="box-btn">
 					<AnchorComp
 						class="btn btn-brand"
 						icon="bx bxs-download"
 						target="_blank"
-						href="https://drive.google.com/file/d/1QFiquw0YiB3MFyFa4Bk5_Gzzshwtazdo/view?usp=sharing"
+						:href="informations['resume']"
 					>
 						Télécharger CV
 					</AnchorComp>
@@ -27,7 +30,7 @@
 			<div class="home-img">
 				<div class="img-wrapper">
 					<img
-						src="storage/images/developer.png"
+						:src="informations['home_photo']"
 						alt="Ma Photo Professionnelle"
 					/>
 				</div>
@@ -35,18 +38,22 @@
 
 			<div class="social">
 				<SocialLink
-					href="https://www.linkedin.com/in/abdellatif-rhounan"
+					:href="informations['linkedin']"
 					icon="bx bxl-linkedin"
 					title="Mon Compte LinkedIn"
 				/>
 
 				<SocialLink
-					href="https://www.github.com/abdellatif-rhounan"
+					:href="informations['github']"
 					icon="bx bxl-github"
 					title="Mon Compte Github"
 				/>
 
-				<SocialLink href="#" icon="bx bxl-youtube" title="Ma Chaine Youtube" />
+				<SocialLink
+					:href="informations['youtube']"
+					icon="bx bxl-youtube"
+					title="Ma Chaine Youtube"
+				/>
 			</div>
 		</div>
 	</section>
@@ -62,6 +69,12 @@ export default {
 	components: {
 		AnchorComp,
 		SocialLink,
+	},
+
+	computed: {
+		informations() {
+			return this.$store.state.informations;
+		},
 	},
 };
 </script>

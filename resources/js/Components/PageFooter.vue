@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="text">
 				Tous les droits sont réservés &copy; {{ currentYear }}
-				<span>Abdellatif RHOUNAN</span>
+				<span>{{ firstname }} {{ lastname }}</span>
 			</div>
 
 			<div class="icon-top">
@@ -23,6 +23,16 @@ export default {
 		return {
 			currentYear: new Date().getFullYear(),
 		};
+	},
+
+	computed: {
+		firstname() {
+			return this.$store.state.informations["firstname"];
+		},
+
+		lastname() {
+			return this.$store.state.informations["lastname"];
+		},
 	},
 };
 </script>
