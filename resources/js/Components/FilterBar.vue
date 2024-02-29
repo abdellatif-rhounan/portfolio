@@ -55,8 +55,8 @@ export default {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	gap: 1rem;
-	margin-bottom: 3rem;
+	gap: 10px;
+	margin-bottom: 30px;
 }
 
 .item input {
@@ -69,7 +69,7 @@ export default {
 	border: 1px solid $brand_color;
 	font-size: 14px;
 	cursor: pointer;
-	transition: color 0.3s, background-color 0.2s;
+	transition: color 0.3s, background-color 0.3s;
 
 	&.active,
 	&:hover {

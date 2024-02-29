@@ -36,11 +36,12 @@ a {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	width: 4.3rem;
-	height: 4.3rem;
+	width: 38px;
+	height: 38px;
 	border-radius: 50%;
-	border: 0.2rem solid $brand_color;
-	font-size: 2.2rem;
+	border: 2px solid $brand_color;
+	text-decoration: none;
+	font-size: 20px;
 	color: $brand_color;
 	z-index: 1;
 	overflow: hidden;
@@ -64,6 +65,23 @@ a {
 		&::before {
 			width: 100%;
 		}
+	}
+}
+
+// Large Screen
+@media (min-width: 992px) {
+	a {
+		width: 40px;
+		height: 40px;
+		font-size: 22px;
+	}
+}
+
+// xLarge Screen
+@media (min-width: 1200px) {
+	a {
+		width: 42px;
+		height: 42px;
 	}
 }
 </style>

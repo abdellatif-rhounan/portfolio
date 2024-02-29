@@ -25,7 +25,7 @@
 					</p>
 
 					<AnchorComp
-						class="btn btn-brand"
+						class="btn-c btn-brand"
 						:href="informations['resume']"
 						icon="bx bxs-download"
 						target="_blank"
@@ -60,57 +60,106 @@ export default {
 @use "../../css/helpers/variables" as *;
 
 .portfolio-section {
-	display: flex;
-	align-items: center;
 	background: $second_bg_color;
 }
 
-.content {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	column-gap: 3rem;
-}
-
 .img-wrapper {
-	position: absolute;
-	right: calc(60% + 3rem);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 31%;
+	width: 426px;
 	height: 414px;
+	margin: 0 auto;
 	background: $brand_color;
 	mask-image: url("storage/images/about-mask.png");
 	mask-repeat: no-repeat;
-	mask-size: 485px 424px;
+	mask-size: 100% 424px;
 	mask-position: 11% 145%;
 	img {
-		width: 320px;
+		width: 300px;
 	}
 }
 
 .text {
-	flex-basis: 60%;
-
 	h3 {
-		margin-bottom: 2rem;
+		margin-bottom: 14px;
 		font-family: $hand_font;
-		font-size: 2.5rem;
+		font-size: 22px;
 		font-weight: 500;
 		color: $brand_color;
 	}
 
 	p {
-		margin-bottom: 1.3rem;
+		margin-bottom: 12px;
 		text-align: justify;
 		letter-spacing: 1px;
 		font-family: $hand_font;
-		font-size: 2rem;
+		font-size: 17px;
 
 		&:last-of-type {
-			margin-bottom: 2.5rem;
+			margin-bottom: 25px;
 		}
+	}
+}
+
+// Small Screen
+@media (min-width: 576px) {
+	.text {
+		h3 {
+			font-size: 25px;
+		}
+
+		p {
+			margin-bottom: 13px;
+			font-size: 20px;
+		}
+	}
+}
+
+// Large Screen
+@media (min-width: 992px) {
+	.portfolio-section {
+		display: flex;
+		align-items: center;
+	}
+
+	.content {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		column-gap: 30px;
+	}
+
+	.img-wrapper {
+		position: absolute;
+		right: calc(50% + 30px);
+		mask-position: 48% 110%;
+	}
+
+	.text {
+		flex-basis: 50%;
+	}
+}
+
+// xLarge Screen
+@media (min-width: 1200px) {
+	.img-wrapper {
+		right: calc(57% + 30px);
+	}
+
+	.text {
+		flex-basis: 57%;
+	}
+}
+
+// xxLarge Screen
+@media (min-width: 1400px) {
+	.img-wrapper {
+		right: calc(63% + 30px);
+	}
+
+	.text {
+		flex-basis: 63%;
 	}
 }
 </style>

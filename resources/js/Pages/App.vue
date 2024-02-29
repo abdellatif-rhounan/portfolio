@@ -1,30 +1,30 @@
 <template>
-	<PageHeader />
+	<Navbar />
 	<Home />
 	<About />
 	<Works />
 	<Contact />
-	<PageFooter />
+	<Footer />
 </template>
 
 <script>
-import PageHeader from "@/Components/PageHeader.vue";
+import Navbar from "@/Components/Navbar.vue";
 import Home from "@/Views/Home.vue";
 import About from "@/Views/About.vue";
 import Works from "@/Views/Works.vue";
 import Contact from "@/Views/Contact.vue";
-import PageFooter from "@/Components/PageFooter.vue";
+import Footer from "@/Components/Footer.vue";
 
 export default {
 	name: "App",
 
 	components: {
-		PageHeader,
+		Navbar,
 		Home,
 		About,
 		Works,
 		Contact,
-		PageFooter,
+		Footer,
 	},
 
 	created() {

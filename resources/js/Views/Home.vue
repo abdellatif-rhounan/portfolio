@@ -13,7 +13,7 @@
 
 				<div class="box-btn">
 					<AnchorComp
-						class="btn btn-brand"
+						class="btn-c btn-brand"
 						icon="bx bxs-download"
 						target="_blank"
 						:href="informations['resume']"
@@ -21,7 +21,7 @@
 						Télécharger CV
 					</AnchorComp>
 
-					<AnchorComp class="btn btn-outline-brand" href="#works">
+					<AnchorComp class="btn-c btn-outline-brand" href="#works">
 						Voir Portfolio
 					</AnchorComp>
 				</div>
@@ -89,75 +89,39 @@ export default {
 .container {
 	position: relative;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	flex-basis: 100%;
 }
 
 .content {
-	flex-basis: 40%;
 	font-weight: 600;
 }
 
 .greeting {
-	font-size: 2.5rem;
+	font-size: 19px;
 }
 
 .myname {
-	margin-top: 1.2rem;
+	margin: 20px 0 10px;
+	line-height: 1;
 	font-family: $hand_font;
-	font-size: 6rem;
+	font-size: 47px;
 	> span {
-		font-family: inherit;
 		color: $brand_color;
 	}
 }
 
 .description {
-	font-size: 2.7rem;
-	margin-bottom: 3rem;
+	font-size: 23px;
+	margin-bottom: 20px;
 }
 
 .box-btn {
 	display: inline-flex;
-	gap: 2rem;
+	column-gap: 10px;
 }
 
 .home-img {
-	position: relative;
-	width: 490px;
-	height: 490px;
-	padding: 20px;
-	border-radius: 50%;
-	z-index: 1;
-
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: inherit;
-		height: inherit;
-		border-radius: inherit;
-		background: conic-gradient(
-			$brand_color 22%,
-			transparent 22% 50%,
-			$brand_color 50% 72%,
-			transparent 72% 100%
-		);
-		mask-image: radial-gradient(
-			farthest-side,
-			transparent calc(100% - 20px),
-			#000 0
-		);
-		-webkit-mask-image: radial-gradient(
-			farthest-side,
-			transparent calc(100% - 7px),
-			#000 0
-		);
-		z-index: -1;
-		animation: rotate-image 5s linear infinite;
-	}
+	display: none;
 }
 
 .img-wrapper {
@@ -178,12 +142,112 @@ export default {
 	position: absolute;
 	bottom: 0;
 	display: inline-flex;
-	column-gap: 1.5rem;
+	column-gap: 10px;
 }
 
 @keyframes rotate-image {
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+// Small Screen
+@media (min-width: 576px) {
+	.greeting {
+		font-size: 20px;
+	}
+
+	.myname {
+		font-size: 50px;
+	}
+
+	.description {
+		font-size: 25px;
+	}
+}
+
+// Medium Screen
+@media (min-width: 768px) {
+	.myname {
+		font-size: 55px;
+	}
+}
+
+// Large Screen
+@media (min-width: 992px) {
+	.container {
+		justify-content: space-between;
+		flex-basis: 100%;
+	}
+
+	.content {
+		flex-basis: 47%;
+	}
+
+	.myname {
+		font-size: 50px;
+	}
+
+	.home-img {
+		position: relative;
+		display: block;
+		width: 410px;
+		height: 410px;
+		padding: 20px;
+		border-radius: 50%;
+		z-index: 1;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: inherit;
+			height: inherit;
+			border-radius: inherit;
+			background: conic-gradient(
+				$brand_color 22%,
+				transparent 22% 50%,
+				$brand_color 50% 72%,
+				transparent 72% 100%
+			);
+			mask-image: radial-gradient(
+				farthest-side,
+				transparent calc(100% - 20px),
+				#000 0
+			);
+			-webkit-mask-image: radial-gradient(
+				farthest-side,
+				transparent calc(100% - 7px),
+				#000 0
+			);
+			z-index: -1;
+			animation: rotate-image 5s linear infinite;
+		}
+	}
+}
+
+// xLarge Screen
+@media (min-width: 1200px) {
+	.myname {
+		font-size: 60px;
+	}
+
+	.home-img {
+		width: 465px;
+		height: 465px;
+	}
+}
+
+// xxLarge Screen
+@media (min-width: 1400px) {
+	.content {
+		flex-basis: 40%;
+	}
+
+	.home-img {
+		width: 488px;
+		height: 488px;
 	}
 }
 </style>

@@ -8,39 +8,12 @@
 @import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
 
 // Reset Styling
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	scroll-behavior: smooth;
-	font-family: $main_font, sans-serif;
-}
-
-html {
-	font-size: 62.5%;
-	overflow-x: hidden;
-}
-
 body {
-	min-height: 100vh;
+	min-width: 450px;
 	background: $bg_color;
+	font-family: $main_font, sans-serif !important;
 	color: $text_color;
-}
-
-a {
-	text-decoration: none;
-	color: $text_color;
-}
-
-img {
-	width: 100%;
-}
-
-button,
-input,
-textarea {
-	border: none;
-	outline: none;
+	overflow-x: hidden;
 }
 
 // Text Selection Override

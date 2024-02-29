@@ -53,7 +53,7 @@ export default {
 }
 
 .heading {
-	margin-bottom: 1rem;
+	margin-bottom: 15px;
 }
 
 .no-project {
@@ -68,7 +68,23 @@ export default {
 
 .projects {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 3.2rem;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+// Medium Screen
+@media (min-width: 768px) {
+	.projects {
+		grid-template-columns: 1fr 1fr;
+		column-gap: 25px;
+	}
+}
+
+// xLarge Screen
+@media (min-width: 1200px) {
+	.projects {
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 30px;
+	}
 }
 </style>

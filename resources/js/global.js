@@ -1,5 +1,5 @@
 window.onload = () => {
-	const navLinks = document.querySelectorAll("#navbar > a");
+	const navLinks = document.querySelectorAll("#navbarNav .nav-link");
 	const sections = document.body.querySelectorAll(".portfolio-section");
 	const secData = [];
 
@@ -7,7 +7,7 @@ window.onload = () => {
 	sections.forEach((el) => {
 		let obj = {};
 		obj.id = el.id;
-		obj.startPos = el.offsetTop - 60;
+		obj.startPos = el.offsetTop - 55;
 		obj.endPos = obj.startPos + el.offsetHeight;
 		secData.push(obj);
 	});

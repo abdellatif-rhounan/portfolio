@@ -6,61 +6,75 @@
 				<span>Moi</span>
 			</h2>
 
-			<div class="content">
-				<div class="form-wrapper">
+			<div class="row gy-5">
+				<div class="form-wrapper col-12 col-lg-7 col-xxl-6">
 					<h3 class="sub-heading">Envoyez Moi un Message :</h3>
 
-					<form class="form" ref="form" @submit.prevent="submitForm">
-						<div class="input-group">
-							<input
-								type="text"
-								class="field"
-								:class="{ invalid: v.fromName.$error }"
-								placeholder="Votre Nom Complet*"
-								name="from_name"
-								v-model="fromName"
-							/>
+					<form ref="form" @submit.prevent="submitForm">
+						<div class="row">
+							<div class="col-6 form-floating mb-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Votre Nom Complet"
+									id="fullname"
+									name="from_name"
+									:class="{ 'is-invalid': v.fromName.$error }"
+									v-model="fromName"
+								/>
 
-							<div
-								class="error-field"
-								v-for="error of v.fromName.$errors"
-								:key="error.$uid"
-							>
-								{{ error.$message }}
+								<label class="label" for="fullname">Votre Nom Complet</label>
+
+								<div
+									v-if="v.fromName.$errors"
+									class="invalid-feedback"
+									v-for="error of v.fromName.$errors"
+									:key="error.$uid"
+								>
+									{{ error.$message }}
+								</div>
+							</div>
+
+							<div class="col-6 form-floating mb-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Votre Email"
+									id="email"
+									name="from_email"
+									:class="{ 'is-invalid': v.fromEmail.$error }"
+									v-model="fromEmail"
+								/>
+
+								<label class="label" for="email">Votre Email</label>
+
+								<div
+									v-if="v.fromEmail.$errors"
+									class="invalid-feedback"
+									v-for="error of v.fromEmail.$errors"
+									:key="error.$uid"
+								>
+									{{ error.$message }}
+								</div>
 							</div>
 						</div>
 
-						<div class="input-group">
+						<div class="form-floating mb-3">
 							<input
 								type="text"
-								class="field"
-								:class="{ invalid: v.fromEmail.$error }"
-								placeholder="Votre Email*"
-								name="from_email"
-								v-model="fromEmail"
-							/>
-
-							<div
-								class="error-field"
-								v-for="error of v.fromEmail.$errors"
-								:key="error.$uid"
-							>
-								{{ error.$message }}
-							</div>
-						</div>
-
-						<div class="input-group">
-							<input
-								type="text"
-								class="field"
-								:class="{ invalid: v.subject.$error }"
-								placeholder="Objet*"
+								class="form-control"
+								placeholder="Objet"
+								id="object"
 								name="subject"
+								:class="{ 'is-invalid': v.subject.$error }"
 								v-model="subject"
 							/>
 
+							<label class="label" for="object">Objet</label>
+
 							<div
-								class="error-field"
+								v-if="v.subject.$errors"
+								class="invalid-feedback"
 								v-for="error of v.subject.$errors"
 								:key="error.$uid"
 							>
@@ -68,18 +82,22 @@
 							</div>
 						</div>
 
-						<div class="input-group">
+						<div class="form-floating mb-3">
 							<textarea
-								class="field textarea"
-								:class="{ invalid: v.message.$error }"
-								placeholder="Votre Message Ici*"
+								class="form-control"
+								placeholder="Votre Message Ici"
+								id="message"
 								name="message"
+								:class="{ 'is-invalid': v.message.$error }"
 								v-model="message"
 							>
 							</textarea>
 
+							<label class="label" for="message">Votre Message Ici</label>
+
 							<div
-								class="error-field"
+								v-if="v.message.$errors"
+								class="invalid-feedback"
 								v-for="error of v.message.$errors"
 								:key="error.$uid"
 							>
@@ -87,17 +105,17 @@
 							</div>
 						</div>
 
-						<ButtonComp class="btn btn-brand" type="submit">
+						<ButtonComp class="btn-c btn-brand" type="submit">
 							Envoyez Message
 						</ButtonComp>
 					</form>
 				</div>
 
-				<div class="info-wrapper">
+				<div class="info-wrapper col-12 col-lg-5 col-xxl-6">
 					<h3 class="sub-heading">Informations de base :</h3>
 
-					<div class="info-content">
-						<div class="info-box">
+					<div class="row">
+						<div class="info-box col-12 col-sm-6 col-lg-12 col-xxl-6">
 							<h4>Nom Complet :</h4>
 							<span
 								>{{ informations["firstname"] }}
@@ -105,7 +123,7 @@
 							>
 						</div>
 
-						<div class="info-box">
+						<div class="info-box col-12 col-sm-6 col-lg-12 col-xxl-6">
 							<h4>
 								<i class="bx bxl-gmail"></i>
 								Email :
@@ -113,7 +131,7 @@
 							<span>{{ informations["mail"] }}</span>
 						</div>
 
-						<div class="info-box">
+						<div class="info-box col-12 col-sm-6 col-lg-12 col-xxl-6">
 							<h4>
 								<i class="bx bx-phone"></i>
 								Télephone :
@@ -121,7 +139,7 @@
 							<span>{{ informations["phone"] }}</span>
 						</div>
 
-						<div class="info-box">
+						<div class="info-box col-12 col-sm-6 col-lg-12 col-xxl-6">
 							<h4>
 								<i class="bx bxl-whatsapp"></i>
 								WhatsApp :
@@ -129,7 +147,7 @@
 							<span>{{ informations["whatsapp"] }}</span>
 						</div>
 
-						<div class="info-box">
+						<div class="info-box col-12 col-sm-6 col-lg-12 col-xxl-6">
 							<h4>
 								<i class="bx bx-briefcase"></i>
 								Emploi :
@@ -253,28 +271,18 @@ export default {
 @use "../../css/helpers/variables" as *;
 
 .portfolio-section {
-	padding-bottom: calc(2rem + 60px);
+	display: flex;
+	padding-bottom: calc(1.5rem + 52px);
 	background: $second_bg_color;
 	letter-spacing: 0.5px;
 }
 
 .container {
 	display: flex;
+	flex-basis: 100%;
 	flex-direction: column;
-	gap: 4rem;
-}
-
-.content {
-	display: flex;
-	gap: 8rem;
-}
-
-.form-wrapper {
-	flex-basis: 52%;
-}
-
-.info-wrapper {
-	flex-basis: 40%;
+	justify-content: center;
+	row-gap: 22px;
 }
 
 .sub-heading {
@@ -282,84 +290,74 @@ export default {
 	margin-bottom: 30px;
 	padding-bottom: 5px;
 	border-bottom: 2px solid $brand_color;
-	font-size: 23px;
+	font-size: 20px;
 }
 
-.form {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 2rem;
-
-	.input-group {
-		flex-basis: calc(50% - 1rem);
-
-		&:nth-child(3),
-		&:nth-child(4) {
-			flex-basis: 100%;
-		}
-
-		.error-field {
-			padding: 0 10px;
-			font-size: 12px;
-			color: red;
-		}
+.form-floating {
+	&.col-6 .label {
+		left: calc(var(--bs-gutter-x) * 0.5);
 	}
 
-	.field {
-		display: inline-block;
-		width: 100%;
-		margin-bottom: 5px;
-		padding: 10px 13px;
-		border-radius: 7px;
-		border: 1px solid $brand_color;
-		background: transparent;
+	.form-control {
+		background-color: transparent;
 		letter-spacing: 1px;
-		font-size: 16px;
+		font-size: 14px;
 		color: $text_color;
 
-		&:focus {
-			box-shadow: 0 0 6px $brand_color;
+		&:not(.is-invalid) {
+			border-color: $brand_color;
+
+			&:focus {
+				box-shadow: 0 0 6px $brand_color;
+			}
 		}
 
 		&:-webkit-autofill {
-			box-shadow: 0 0 0 22px rgb(66 61 61) inset;
-			-webkit-text-fill-color: $brand_color;
-		}
-
-		&.invalid {
-			border-color: red;
-			box-shadow: 0 0 6px red;
+			-webkit-text-fill-color: $text_color;
+			-webkit-background-clip: text;
 		}
 	}
 
-	.textarea {
+	.label {
+		font-size: 14px;
+		color: lightgray !important;
+
+		&::after {
+			background-color: transparent !important;
+		}
+	}
+
+	textarea {
 		height: 130px;
-		resize: none;
 		overflow-y: auto;
 	}
 }
 
-.info-content {
-	display: flex;
-	flex-wrap: wrap;
-	column-gap: 3rem;
-	row-gap: 2rem;
-	font-size: 18px;
-}
-
 .info-box {
-	width: 40%;
+	margin-bottom: 20px;
 
 	h4 {
-		margin-bottom: 5px;
+		margin-bottom: 7px;
+		font-size: 20px;
 		color: $brand_color;
 
 		i {
 			margin-right: 3px;
 			vertical-align: top;
-			font-size: 25px;
+			font-size: 23px;
 		}
+	}
+
+	> span {
+		word-wrap: break-word;
+		font-size: 16px;
+	}
+}
+
+// Large Screen
+@media (min-width: 992px) {
+	.portfolio-section {
+		padding-bottom: calc(1.5rem + 55px);
 	}
 }
 </style>

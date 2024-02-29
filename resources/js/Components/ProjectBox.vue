@@ -64,11 +64,11 @@ export default {
 
 .project-box {
 	position: relative;
-	height: 30rem;
-	border-radius: 1.3rem;
+	height: 300px;
+	border-radius: 13px;
 	letter-spacing: 1px;
 	overflow: hidden;
-	box-shadow: 0 0 1rem #000;
+	box-shadow: 0 0 10px #000;
 
 	&:hover .layer {
 		transform: translateY(0);
@@ -76,6 +76,7 @@ export default {
 }
 
 .img {
+	width: 100%;
 	height: 100%;
 }
 
@@ -89,7 +90,7 @@ export default {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding: 2rem;
+	padding: 20px;
 	background: rgba(150, 141, 123, 88%);
 	transform: translateY(100%);
 	transition: transform 0.3s;
@@ -100,14 +101,15 @@ export default {
 }
 
 .title {
-	font-size: 2.1rem;
 	color: $brand_color;
+	font-size: 20px;
 }
 
 .tag {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 	gap: 5px;
 
 	span {
@@ -124,8 +126,33 @@ export default {
 	padding: 14px 10px;
 	border-radius: 7px;
 	background: rgb(0 0 0 / 32%);
-	line-height: 1.4;
 	text-align: justify;
-	font-size: 15px;
+	font-size: 14px;
+}
+
+// Small Screen
+@media (min-width: 576px) {
+	.title {
+		font-size: 22px;
+	}
+}
+
+// Medium Screen
+@media (min-width: 768px) {
+	.title {
+		font-size: 19px;
+	}
+}
+
+// xLarge Screen
+@media (min-width: 1200px) {
+	.title {
+		font-size: 20px;
+	}
+
+	.description {
+		line-height: 1.4;
+		font-size: 15px;
+	}
 }
 </style>

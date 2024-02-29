@@ -17,7 +17,7 @@
 
 <script>
 export default {
-	name: "PageFooter",
+	name: "Footer",
 
 	data() {
 		return {
@@ -52,12 +52,11 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 1.5rem 0;
+	padding: 13px 0;
 }
 
 .text {
-	word-spacing: 1px;
-	font-size: 1.8rem;
+	font-size: 15px;
 
 	span {
 		font-family: $hand_font;
@@ -75,20 +74,21 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 4rem;
-		height: 4rem;
-		border-radius: 0.8rem;
+		width: 35px;
+		height: 35px;
+		border-radius: 7px;
 		background: $brand_color;
+		text-decoration: none;
 		transition: box-shadow 0.3s;
 
 		i {
-			font-size: 2.5rem;
+			font-size: 25px;
 			font-weight: 500;
 			color: $bg_color;
 		}
 
 		&:hover {
-			box-shadow: 0 0 1rem $brand_color;
+			box-shadow: 0 0 10px $brand_color;
 		}
 	}
 }
